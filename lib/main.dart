@@ -1,4 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:emart_seller/const/const.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -13,12 +13,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: appname,
+      home: LoginScreen(),
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+          appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      )),
     );
   }
 }
