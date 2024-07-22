@@ -1,6 +1,4 @@
 import 'package:emart_seller/const/const.dart';
-import 'package:emart_seller/views/home_screen/home.dart';
-import 'package:emart_seller/views/widgets/our_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,7 +9,7 @@ class LoginScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: purpleColor,
       body: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
