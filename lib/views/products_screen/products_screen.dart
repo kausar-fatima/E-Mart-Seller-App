@@ -29,6 +29,30 @@ class ProductsScreen extends StatelessWidget {
                   ),
                   title: boldText(text: "Product title", color: fontGrey),
                   subtitle: normalText(text: "\$100", color: darkGrey),
+                  trailing: VxPopupMenu(
+                    arrowSize: 0.0,
+                    menuBuilder: () {
+                      return Column(
+                        children:
+                            List.generate(popupMenuTitles.length, (index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Row(
+                              children: [
+                                Icon(popupMenuIcons[index]),
+                                10.widthBox,
+                                normalText(
+                                    text: popupMenuTitles[index],
+                                    color: darkGrey),
+                              ],
+                            ).onTap(() {}),
+                          );
+                        }),
+                      ).box.white.rounded.width(200).make();
+                    },
+                    clickType: VxClickType.singleClick,
+                    child: Icon(Icons.more_vert_rounded),
+                  ),
                 );
               },
             ),
