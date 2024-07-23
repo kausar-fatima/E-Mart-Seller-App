@@ -23,7 +23,10 @@ const appname = "eMart Seller App",
     settings = "Settings",
     featured = "Featured",
     edit = "Edit",
+    save = "Save",
+    confirmPass = "Confirm Password",
     remove = "Remove",
+    name = "Username",
     credit = "@BaabaDevs";
 
 // shop settings strings
@@ -36,5 +39,5 @@ const nameHint = "eg. Vendor Name",
     description = "Description",
     mobile = "Shop Mobile",
     website = "Shop Website",
-    name = "Shop Name",
+    shopname = "Shop Name",
     address = "Shop Address";
