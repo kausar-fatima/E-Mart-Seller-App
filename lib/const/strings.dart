@@ -26,6 +26,7 @@ const appname = "eMart Seller App",
     save = "Save",
     confirmPass = "Confirm Password",
     remove = "Remove",
+    chats = "Chats",
     name = "Username",
     credit = "@BaabaDevs";
 

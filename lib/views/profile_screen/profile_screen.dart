@@ -1,5 +1,8 @@
 import 'package:emart_seller/const/const.dart';
+import 'package:emart_seller/views/messages_screen/messages_screen.dart';
 import 'package:emart_seller/views/profile_screen/edit_profilescreen.dart';
+
+import '../shop_screen/shop_settings_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -46,6 +49,21 @@ class ProfileScreen extends StatelessWidget {
                 profileButtonIcons.length,
                 (index) {
                   return ListTile(
+                    onTap: () {
+                      switch (index) {
+                        case 0:
+                          Get.to(() {
+                            return ShopSettings();
+                          });
+                          break;
+                        case 1:
+                          Get.to(() {
+                            return MessagesScreen();
+                          });
+                          break;
+                        default:
+                      }
+                    },
                     leading: Icon(
                       profileButtonIcons[index],
                       color: white,
