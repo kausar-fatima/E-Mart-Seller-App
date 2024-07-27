@@ -1,4 +1,5 @@
 import 'package:emart_seller/const/const.dart';
+import 'package:emart_seller/views/orders_screen/order_details.dart';
 import 'package:intl/intl.dart' as intl;
 
 class OrdersScreen extends StatelessWidget {
@@ -8,6 +9,11 @@ class OrdersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarWidget(title: orders),
+      bottomNavigationBar: SizedBox(
+        height: 60,
+        width: context.screenWidth,
+        child: ourButton(color: green, onPress: () {}, title: "Confirm Order"),
+      ),
       body: Padding(
         padding: EdgeInsets.all(8.0),
         child: SingleChildScrollView(
@@ -19,7 +25,9 @@ class OrdersScreen extends StatelessWidget {
                 return Container(
                   margin: EdgeInsets.only(bottom: 4),
                   child: ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const OrderDetails());
+                    },
                     tileColor: textfieldGrey,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
