@@ -23,6 +23,48 @@ class OrderDetails extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
+              // order delivery section
+              Visibility(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    boldText(text: "Order Status", color: fontGrey, size: 16.0),
+                    SwitchListTile(
+                      activeColor: green,
+                      value: true,
+                      onChanged: (value) {},
+                      title: boldText(text: "Placed", color: fontGrey),
+                    ),
+                    SwitchListTile(
+                      activeColor: green,
+                      value: true,
+                      onChanged: (value) {},
+                      title: boldText(text: "Confirmed", color: fontGrey),
+                    ),
+                    SwitchListTile(
+                      activeColor: green,
+                      value: true,
+                      onChanged: (value) {},
+                      title: boldText(text: "on Delivery", color: fontGrey),
+                    ),
+                    SwitchListTile(
+                      activeColor: green,
+                      value: true,
+                      onChanged: (value) {},
+                      title: boldText(text: "Delivered", color: fontGrey),
+                    ),
+                  ],
+                )
+                    .box
+                    .padding(EdgeInsets.all(8.0))
+                    .outerShadowMd
+                    .white
+                    .border(color: lightGrey)
+                    .roundedSM
+                    .make(),
+              ),
+
+              // order details section
               Column(
                 children: [
                   OrderPlaceDetails(
@@ -74,7 +116,13 @@ class OrderDetails extends StatelessWidget {
                     ),
                   ),
                 ],
-              ).box.outerShadowMd.white.make(),
+              )
+                  .box
+                  .outerShadowMd
+                  .white
+                  .border(color: lightGrey)
+                  .roundedSM
+                  .make(),
               Divider(),
               10.heightBox,
               boldText(text: "Ordered Products", color: purpleColor),
