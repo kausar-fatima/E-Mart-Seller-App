@@ -7,8 +7,34 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    checkUser();
+  }
+
+  var isLoggedin = false;
+
+  checkUser() async {
+    auth.authStateChanges().listen(
+      (User? user) {
+        if (user == null && mounted) {
+          isLoggedin = false;
+        } else {
+          isLoggedin = true;
+        }
+        setState(() {});
+      },
+    );
+  }
 
   // This widget is the root of your application.
   @override
@@ -16,7 +42,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: appname,
-      home: LoginScreen(),
+      home: isLoggedin ? const Home() : const LoginScreen(),
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,

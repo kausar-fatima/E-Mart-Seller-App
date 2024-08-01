@@ -2,7 +2,9 @@ import 'package:emart_seller/const/const.dart';
 import 'package:emart_seller/views/orders_screen/components/order_place.dart';
 
 class OrderDetails extends StatelessWidget {
-  const OrderDetails({super.key});
+  const OrderDetails({super.key, this.data});
+
+  final dynamic data;
 
   @override
   Widget build(BuildContext context) {
