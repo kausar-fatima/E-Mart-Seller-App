@@ -92,7 +92,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                           controller.ondelivery.value = value;
                           controller.changeStatus(
                               title: "order_on_delivery",
-                              status: true,
+                              status: value,
                               docID: widget.data.id);
                         },
                         title: boldText(text: "on Delivery", color: fontGrey),
@@ -104,7 +104,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                           controller.delivered.value = value;
                           controller.changeStatus(
                               title: "order_delivered",
-                              status: true,
+                              status: value,
                               docID: widget.data.id);
                         },
                         title: boldText(text: "Delivered", color: fontGrey),
