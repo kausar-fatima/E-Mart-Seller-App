@@ -20,6 +20,9 @@ class _OrderDetailsState extends State<OrderDetails> {
     // TODO: implement initState
     super.initState();
     controller.getOrders(widget.data);
+    controller.confirmed.value = widget.data['order_confirmed'];
+    controller.ondelivery.value = widget.data['order_on_delivery'];
+    controller.delivered.value = widget.data['order_delivered'];
   }
 
   @override
@@ -41,8 +44,17 @@ class _OrderDetailsState extends State<OrderDetails> {
           child: SizedBox(
             height: 60,
             width: context.screenWidth,
-            child:
-                ourButton(color: green, onPress: () {}, title: "Confirm Order"),
+            child: ourButton(
+              color: green,
+              onPress: () {
+                controller.confirmed(true);
+                controller.changeStatus(
+                    title: "order_confirmed",
+                    status: true,
+                    docID: widget.data.id);
+              },
+              title: "Confirm Order",
+            ),
           ),
         ),
         body: Padding(
@@ -53,7 +65,7 @@ class _OrderDetailsState extends State<OrderDetails> {
               children: [
                 // order delivery section
                 Visibility(
-                  visible: !controller.confirmed.value,
+                  visible: controller.confirmed.value,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -78,6 +90,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                         value: controller.ondelivery.value,
                         onChanged: (value) {
                           controller.ondelivery.value = value;
+                          controller.changeStatus(
+                              title: "order_on_delivery",
+                              status: true,
+                              docID: widget.data.id);
                         },
                         title: boldText(text: "on Delivery", color: fontGrey),
                       ),
@@ -86,6 +102,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                         value: controller.delivered.value,
                         onChanged: (value) {
                           controller.delivered.value = value;
+                          controller.changeStatus(
+                              title: "order_delivered",
+                              status: true,
+                              docID: widget.data.id);
                         },
                         title: boldText(text: "Delivered", color: fontGrey),
                       ),
