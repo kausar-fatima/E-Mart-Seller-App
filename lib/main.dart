@@ -1,5 +1,4 @@
 import 'package:emart_seller/const/const.dart';
-import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
