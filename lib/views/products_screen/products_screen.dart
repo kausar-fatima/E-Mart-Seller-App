@@ -1,17 +1,17 @@
 import 'package:emart_seller/const/const.dart';
-import 'package:emart_seller/services/store_services.dart';
-import 'package:emart_seller/views/products_screen/add_product.dart';
-import 'package:emart_seller/views/products_screen/product_details.dart';
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(ProductsController());
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: purpleColor,
-        onPressed: () {
+        onPressed: () async {
+          await controller.getCategories();
+          controller.populateCategoryList();
           Get.to(() => AddProduct());
         },
         child: Icon(Icons.add),
@@ -64,19 +64,56 @@ class ProductsScreen extends StatelessWidget {
                             arrowSize: 0.0,
                             menuBuilder: () {
                               return Column(
-                                children: List.generate(popupMenuTitles.length,
-                                    (index) {
+                                children:
+                                    List.generate(popupMenuTitles.length, (i) {
                                   return Padding(
                                     padding: const EdgeInsets.all(12.0),
                                     child: Row(
                                       children: [
-                                        Icon(popupMenuIcons[index]),
+                                        Icon(
+                                          popupMenuIcons[i],
+                                          color: data[index]['featured_id'] ==
+                                                      currentUser!.uid &&
+                                                  i == 0
+                                              ? green
+                                              : darkGrey,
+                                        ),
                                         10.widthBox,
                                         normalText(
-                                            text: popupMenuTitles[index],
+                                            text: data[index]['featured_id'] ==
+                                                        currentUser!.uid &&
+                                                    i == 0
+                                                ? 'Remove feature'
+                                                : popupMenuTitles[i],
                                             color: darkGrey),
                                       ],
-                                    ).onTap(() {}),
+                                    ).onTap(() {
+                                      switch (i) {
+                                        case 0:
+                                          if (data[index]['is_featured'] ==
+                                              true) {
+                                            controller
+                                                .removeFeatured(data[index].id);
+                                            VxToast.show(context,
+                                                msg: "Removed");
+                                          } else {
+                                            controller
+                                                .addFeatured(data[index].id);
+                                            VxToast.show(context, msg: "Added");
+                                          }
+
+                                          break;
+                                        case 1:
+                                          break;
+                                        case 2:
+                                          controller
+                                              .removeProduct(data[index].id);
+                                          VxToast.show(context,
+                                              msg: "Product removed");
+                                          break;
+                                        default:
+                                      }
+                                    }),
                                   );
                                 }),
                               ).box.white.rounded.width(200).make();

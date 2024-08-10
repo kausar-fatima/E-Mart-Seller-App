@@ -28,4 +28,11 @@ class StoreServices {
         .where('vendor_id', isEqualTo: uid)
         .snapshots();
   }
+
+  static getPopularProducts(uid) {
+    return firestore
+        .collection(productCollection)
+        .where("vendor_id", isEqualTo: uid)
+        .orderBy('p_wishlist'.length);
+  }
 }
