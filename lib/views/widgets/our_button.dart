@@ -7,7 +7,7 @@ Widget ourButton({title, color = purpleColor, onPress}) {
         borderRadius: BorderRadius.circular(8),
       ),
       backgroundColor: color,
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
     ),
     onPressed: onPress,
     child: normalText(

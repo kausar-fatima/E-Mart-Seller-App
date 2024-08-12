@@ -1,9 +1,11 @@
 import 'package:emart_seller/const/const.dart';
 
-Widget normalText({text, color = Colors.white, size = 14.0}) {
-  return "$text".text.color(color).size(size).make();
+Widget normalText(
+    {dynamic text, Color color = Colors.white, double size = 14.0}) {
+  return "$text".toString().text.color(color).size(size).make();
 }
 
-Widget boldText({text, color = Colors.white, size = 14}) {
-  return "$text".text.color(color).size(size).bold.make();
+Widget boldText(
+    {dynamic text, Color color = Colors.white, double size = 14.0}) {
+  return "$text".toString().text.color(color).size(size).bold.make();
 }
