@@ -1,7 +1,9 @@
 import 'package:emart_seller/const/const.dart';
 
-Widget customTextField({label, hint, controller, isDesc = false}) {
+Widget customTextField(
+    {label, hint, required TextEditingController controller, isDesc = false}) {
   return TextFormField(
+    controller: controller,
     style: const TextStyle(color: white),
     maxLines: isDesc ? 4 : 1,
     decoration: InputDecoration(

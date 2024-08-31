@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                           context: context,
                           title: orders,
                           count: "15",
-                          icon: orders),
+                          icon: icOrders),
                     ],
                   ),
                   10.heightBox,

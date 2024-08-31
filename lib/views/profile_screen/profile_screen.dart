@@ -1,7 +1,6 @@
 import 'package:emart_seller/const/const.dart';
 import 'package:emart_seller/controllers/auth_controller.dart';
 import 'package:emart_seller/controllers/profile_controller.dart';
-import 'package:emart_seller/services/store_services.dart';
 import 'package:emart_seller/views/messages_screen/messages_screen.dart';
 import 'package:emart_seller/views/profile_screen/edit_profilescreen.dart';
 
@@ -13,6 +12,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(ProfileController());
+    debugPrint(" ***** Current User ID:  ${currentUser!.uid} ***** ");
     return Scaffold(
         backgroundColor: purpleColor,
         appBar: AppBar(
@@ -29,6 +29,7 @@ class ProfileScreen extends StatelessWidget {
               },
               icon: Icon(
                 Icons.edit,
+                color: Colors.white,
               ),
             ),
             TextButton(
@@ -45,6 +46,10 @@ class ProfileScreen extends StatelessWidget {
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (!snapshot.hasData) {
                 return loadingIndicator(circleColor: white);
+              } else if (snapshot.data!.docs.isEmpty) {
+                return Center(
+                  child: normalText(text: "No profile data found."),
+                );
               } else {
                 controller.snapshotData = snapshot.data!.docs[0];
                 return Column(

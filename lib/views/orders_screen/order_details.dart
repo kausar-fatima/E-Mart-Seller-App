@@ -27,6 +27,11 @@ class _OrderDetailsState extends State<OrderDetails> {
 
   @override
   Widget build(BuildContext context) {
+    // Convert the timestamp to DateTime
+    DateTime orderDate = (widget.data['order_date'] as Timestamp).toDate();
+
+    // Format the DateTime object
+    String formattedDate = intl.DateFormat.yMd().add_jm().format(orderDate);
     return Obx(
       () => Scaffold(
         appBar: AppBar(
@@ -129,10 +134,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                         title1: "Order Code",
                         title2: "Shipping Method"),
                     OrderPlaceDetails(
-                        d1: intl.DateFormat()
-                            .add_yMd()
-                            .format((widget.data['order_date'].toDate())),
-                        d2: "${widget.data['payment method']}",
+                        d1: formattedDate,
+                        d2: "${widget.data['payment_method']}",
                         title1: "Order Date",
                         title2: "Payment Method"),
                     OrderPlaceDetails(
@@ -209,7 +212,11 @@ class _OrderDetailsState extends State<OrderDetails> {
                             child: Container(
                               width: 30,
                               height: 20,
-                              color: Color(controller.orders[index]['color']),
+                              color: Color(
+                                int.parse(
+                                  controller.orders[index]['color'],
+                                ),
+                              ),
                             ),
                           ),
                           const Divider(),

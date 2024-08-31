@@ -14,7 +14,10 @@ class ProductsScreen extends StatelessWidget {
           controller.populateCategoryList();
           Get.to(() => AddProduct());
         },
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
       appBar: appBarWidget(title: products),
       body: StreamBuilder(

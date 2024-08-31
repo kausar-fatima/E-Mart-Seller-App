@@ -11,6 +11,8 @@ class AuthController extends GetxController {
     try {
       await auth.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
+      debugPrint(
+          " ****** Email: ${emailController.text} ****** Password: ${passwordController.text} ******* ");
     } on FirebaseAuthException catch (e) {
       VxToast.show(context, msg: e.toString());
     }

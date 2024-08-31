@@ -1,6 +1,5 @@
 import 'package:emart_seller/const/const.dart';
 import 'package:emart_seller/controllers/orders_controller.dart';
-import 'package:emart_seller/services/store_services.dart';
 import 'package:emart_seller/views/orders_screen/order_details.dart';
 import 'package:intl/intl.dart' as intl;
 
@@ -9,7 +8,7 @@ class OrdersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(OrdersController());
+    Get.put(OrdersController());
     return Scaffold(
       appBar: appBarWidget(title: orders),
       bottomNavigationBar: SizedBox(
@@ -24,6 +23,7 @@ class OrdersScreen extends StatelessWidget {
             return loadingIndicator();
           } else {
             var data = snapshot.data!.docs;
+
             return Padding(
               padding: EdgeInsets.all(8.0),
               child: SingleChildScrollView(
@@ -32,7 +32,13 @@ class OrdersScreen extends StatelessWidget {
                   children: List.generate(
                     data.length,
                     (index) {
-                      var time = data[index]['order_date'].toDate();
+                      // Convert the timestamp to DateTime
+                      DateTime orderDate =
+                          (data[index]['order_date'] as Timestamp).toDate();
+
+                      // Format the DateTime object
+                      String formattedDate =
+                          intl.DateFormat.yMd().add_jm().format(orderDate);
                       return Container(
                         margin: EdgeInsets.only(bottom: 4),
                         child: ListTile(
@@ -57,16 +63,13 @@ class OrdersScreen extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Icon(
-                                    Icons.calendar_month,
-                                    color: fontGrey,
-                                  ),
-                                  10.widthBox,
+                                  // Icon(
+                                  //   Icons.calendar_month,
+                                  //   color: fontGrey,
+                                  // ),
+                                  // 10.widthBox,
                                   boldText(
-                                      text: intl.DateFormat()
-                                          .add_yMd()
-                                          .format(time),
-                                      color: darkGrey),
+                                      text: formattedDate, color: darkGrey),
                                 ],
                               ),
                               Row(

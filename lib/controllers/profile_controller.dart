@@ -57,18 +57,29 @@ class ProfileController extends GetxController {
     });
   }
 
-  updateShop({shopname, shopAddress, shopmobile, shopwebsite, shopdesc}) async {
-    var store = firestore.collection(vendorsCollection).doc(currentUser!.uid);
-    await store.set(
-      {
-        'shop_name': shopNameController.text,
-        'shop_address': shopAddressController.text,
-        'shop_mobile': shopMobileController.text,
-        'shop_website': shopWebsiteController.text,
-        'shop_desc': shopDescController.text,
-      },
-      SetOptions(merge: true),
-    );
-    isLoading(false);
+  Future<void> updateShop({
+    required String shopname,
+    required String shopAddress,
+    required String shopmobile,
+    required String shopwebsite,
+    required String shopdesc,
+  }) async {
+    try {
+      var store = firestore.collection(vendorsCollection).doc(currentUser!.uid);
+      await store.set(
+        {
+          'shop_name': shopname,
+          'shop_address': shopAddress,
+          'shop_mobile': shopmobile,
+          'shop_website': shopwebsite,
+          'shop_desc': shopdesc,
+        },
+        SetOptions(merge: true),
+      );
+    } catch (e) {
+      print('Error updating shop: $e');
+    } finally {
+      isLoading(false);
+    }
   }
 }

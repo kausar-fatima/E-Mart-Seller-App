@@ -1,6 +1,5 @@
 import 'package:emart_seller/const/const.dart';
 import 'package:emart_seller/controllers/profile_controller.dart';
-import 'package:emart_seller/views/widgets/custom_textfield.dart';
 
 class ShopSettings extends StatelessWidget {
   const ShopSettings({super.key});
@@ -19,12 +18,14 @@ class ShopSettings extends StatelessWidget {
                 : TextButton(
                     onPressed: () async {
                       controller.isLoading(true);
+                      debugPrint(
+                          " %%%% ${controller.shopAddressController.text} %%%%% ${controller.shopNameController.text} %%%%% ${controller.shopMobileController.text} %%%%% ${controller.shopWebsiteController.text} %%%%% ${controller.shopDescController.text} %%%%% ");
                       await controller.updateShop(
-                        shopAddress: controller.shopAddressController,
-                        shopname: controller.shopNameController,
-                        shopmobile: controller.shopMobileController,
-                        shopwebsite: controller.shopWebsiteController,
-                        shopdesc: controller.shopWebsiteController,
+                        shopAddress: controller.shopAddressController.text,
+                        shopname: controller.shopNameController.text,
+                        shopmobile: controller.shopMobileController.text,
+                        shopwebsite: controller.shopWebsiteController.text,
+                        shopdesc: controller.shopDescController.text,
                       );
                       VxToast.show(context, msg: "Shop updated");
                     },
@@ -39,7 +40,7 @@ class ShopSettings extends StatelessWidget {
               customTextField(
                   label: shopname,
                   hint: nameHint,
-                  controller: controller.nameController),
+                  controller: controller.shopNameController),
               10.heightBox,
               customTextField(
                   label: address,

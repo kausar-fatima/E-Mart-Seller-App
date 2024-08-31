@@ -2,6 +2,7 @@ import 'package:emart_seller/const/const.dart';
 
 class StoreServices {
   static getProfile(uid) {
+    debugPrint(" ***** ${uid} ***** ");
     return firestore
         .collection(vendorsCollection)
         .where('id', isEqualTo: uid)

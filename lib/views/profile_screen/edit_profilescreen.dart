@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:emart_seller/const/const.dart';
 import 'package:emart_seller/controllers/profile_controller.dart';
-import 'package:emart_seller/views/widgets/custom_textfield.dart';
 
 class EditProfilescreen extends StatefulWidget {
   const EditProfilescreen({super.key, this.username});
@@ -27,6 +26,7 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
     return Obx(
       () => Scaffold(
         resizeToAvoidBottomInset: false,
+        backgroundColor: purpleColor,
         appBar: AppBar(
           title: boldText(text: editProfile, size: 16.0),
           actions: [
@@ -135,7 +135,7 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
                   controller: controller.oldpassController),
               10.heightBox,
               customTextField(
-                  label: confirmPass,
+                  label: "NewPassword",
                   hint: passwordHint,
                   controller: controller.newpassController),
             ],
