@@ -12,7 +12,7 @@ class ProductDetails extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: darkGrey,
           ),
@@ -102,12 +102,16 @@ class ProductDetails extends StatelessWidget {
                           ),
                           Row(
                             children: List.generate(
-                              3,
+                              data['p_colors'].length,
                               (index) => VxBox()
                                   .size(40, 40)
                                   .roundedFull
                                   .color(
-                                    Color(data['p_colors'][index]),
+                                    Color(
+                                      data['p_colors'][index] is int
+                                          ? data['p_colors'][index]
+                                          : int.parse(data['p_colors'][index]),
+                                    ),
                                   )
                                   .margin(
                                     const EdgeInsets.symmetric(horizontal: 4),
@@ -135,8 +139,8 @@ class ProductDetails extends StatelessWidget {
                         ],
                       ),
                     ],
-                  ).box.padding(EdgeInsets.all(8)).white.make(),
-                  Divider(),
+                  ).box.padding(const EdgeInsets.all(8)).white.make(),
+                  const Divider(),
                   10.heightBox,
                   //description section
                   // "Description"
@@ -146,7 +150,7 @@ class ProductDetails extends StatelessWidget {
                   //     .make(),
                   boldText(text: "Description", color: fontGrey),
                   10.heightBox,
-                  normalText(text: "${data['p_desc']}", color: fontGrey)
+                  normalText(text: "${data['p_description']}", color: fontGrey)
                 ],
               ),
             ),

@@ -9,7 +9,7 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Get.back();
           },
@@ -18,7 +18,7 @@ class ChatScreen extends StatelessWidget {
         title: boldText(text: chats, size: 16.0, color: fontGrey),
       ),
       body: Padding(
-        padding: EdgeInsets.all(
+        padding: const EdgeInsets.all(
           8.0,
         ),
         child: Column(
@@ -57,7 +57,7 @@ class ChatScreen extends StatelessWidget {
                     ),
                   ),
                 ],
-              ).box.padding(EdgeInsets.all(12)).make(),
+              ).box.padding(const EdgeInsets.all(12)).make(),
             ),
           ],
         ),

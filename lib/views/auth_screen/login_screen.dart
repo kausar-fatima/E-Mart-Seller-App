@@ -28,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                     .box
                     .border(color: white)
                     .rounded
-                    .padding(EdgeInsets.all(8))
+                    .padding(const EdgeInsets.all(8))
                     .make(),
                 10.widthBox,
                 boldText(text: appname, size: 20.0),
@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   TextFormField(
                     controller: controller.emailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         fillColor: textfieldGrey,
                         filled: true,
                         prefixIcon: Icon(

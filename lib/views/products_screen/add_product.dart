@@ -11,8 +11,10 @@ class AddProduct extends StatelessWidget {
         backgroundColor: purpleColor,
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(
               Icons.arrow_back,
               color: white,
             ),
@@ -26,16 +28,16 @@ class AddProduct extends StatelessWidget {
                       controller.isloading(true);
                       await controller.uploadImages();
                       await controller.uploadProduct(context);
-                      Get..back();
+                      Get.back();
                     },
                     child: boldText(text: save, color: white),
                   ),
           ],
         ),
         body: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -59,13 +61,14 @@ class AddProduct extends StatelessWidget {
                     hint: "eg. 20",
                     label: "Quantity",
                     controller: controller.pquantityController),
+                10.heightBox,
                 productDropdown("Category", controller.categoryList,
                     controller.categoryValue, controller),
                 10.heightBox,
                 productDropdown("Subcategory", controller.subcategoryList,
                     controller.subcategoryValue, controller),
                 10.heightBox,
-                Divider(
+                const Divider(
                   color: white,
                 ),
                 10.heightBox,
@@ -93,7 +96,7 @@ class AddProduct extends StatelessWidget {
                 normalText(
                     text: "First image will be your display image",
                     color: lightGrey),
-                Divider(
+                const Divider(
                   color: white,
                 ),
                 10.heightBox,
@@ -119,11 +122,11 @@ class AddProduct extends StatelessWidget {
                             },
                           ),
                           controller.selectedColorIndex == index
-                              ? Icon(
+                              ? const Icon(
                                   Icons.done,
                                   color: white,
                                 )
-                              : SizedBox(),
+                              : const SizedBox(),
                         ],
                       ),
                     ),

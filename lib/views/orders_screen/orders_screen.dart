@@ -25,9 +25,9 @@ class OrdersScreen extends StatelessWidget {
             var data = snapshot.data!.docs;
 
             return Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: List.generate(
                     data.length,
@@ -40,7 +40,7 @@ class OrdersScreen extends StatelessWidget {
                       String formattedDate =
                           intl.DateFormat.yMd().add_jm().format(orderDate);
                       return Container(
-                        margin: EdgeInsets.only(bottom: 4),
+                        margin: const EdgeInsets.only(bottom: 4),
                         child: ListTile(
                           onTap: () {
                             Get.to(() => OrderDetails(
@@ -74,7 +74,7 @@ class OrdersScreen extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.payment,
                                     color: fontGrey,
                                   ),

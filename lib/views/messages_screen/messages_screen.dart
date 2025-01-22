@@ -1,5 +1,4 @@
 import 'package:emart_seller/const/const.dart';
-import 'package:emart_seller/services/store_services.dart';
 import 'package:intl/intl.dart' as intl;
 
 class MessagesScreen extends StatelessWidget {
@@ -20,9 +19,9 @@ class MessagesScreen extends StatelessWidget {
               } else {
                 var data = snapshot.data!.docs;
                 return Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     child: Column(
                       children: List.generate(data.length, (index) {
                         var t = data[index]['created_on'] == null
@@ -31,7 +30,7 @@ class MessagesScreen extends StatelessWidget {
                         var time = intl.DateFormat("h:mma").format(t);
                         return ListTile(
                           onTap: () {},
-                          leading: CircleAvatar(
+                          leading: const CircleAvatar(
                             backgroundColor: purpleColor,
                             child: Icon(
                               Icons.person,

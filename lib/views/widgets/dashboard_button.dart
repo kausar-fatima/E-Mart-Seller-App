@@ -25,6 +25,6 @@ Widget dashboardButton({context, title, count, icon}) {
       .color(purpleColor)
       .rounded
       .size(size.width * 0.4, 80)
-      .padding(EdgeInsets.all(8))
+      .padding(const EdgeInsets.all(8))
       .make();
 }

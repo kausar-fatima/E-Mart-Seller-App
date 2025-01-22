@@ -8,8 +8,8 @@ Widget productDropdown(
         hint: normalText(text: "$hint", color: fontGrey),
         items: list.map((e) {
           return DropdownMenuItem(
-            child: e.toString().text.make(),
             value: e,
+            child: e.toString().text.make(),
           );
         }).toList(),
         onChanged: (newvalue) {
@@ -26,7 +26,7 @@ Widget productDropdown(
         .box
         .white
         .padding(
-          EdgeInsets.symmetric(horizontal: 4),
+          const EdgeInsets.symmetric(horizontal: 4),
         )
         .roundedSM
         .make(),

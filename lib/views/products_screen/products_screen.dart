@@ -12,9 +12,9 @@ class ProductsScreen extends StatelessWidget {
         onPressed: () async {
           await controller.getCategories();
           controller.populateCategoryList();
-          Get.to(() => AddProduct());
+          Get.to(() => const AddProduct());
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.white,
         ),
@@ -28,9 +28,9 @@ class ProductsScreen extends StatelessWidget {
           } else {
             var data = snapshot.data!.docs;
             return Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: List.generate(
                     data.length,
@@ -122,7 +122,7 @@ class ProductsScreen extends StatelessWidget {
                               ).box.white.rounded.width(200).make();
                             },
                             clickType: VxClickType.singleClick,
-                            child: Icon(Icons.more_vert_rounded),
+                            child: const Icon(Icons.more_vert_rounded),
                           ),
                         ),
                       );

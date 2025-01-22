@@ -6,9 +6,9 @@ Widget ChatBubble() {
     //     data['uid'] == currentUser!.uid ? TextDirection.rtl : TextDirection.ltr,
     textDirection: TextDirection.ltr,
     child: Container(
-      padding: EdgeInsets.all(12),
-      margin: EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(12),
+      margin: const EdgeInsets.only(bottom: 8),
+      decoration: const BoxDecoration(
         // color: data['uid'] == currentUser!.uid ? redColor : darkFontGrey,
         color: purpleColor,
         borderRadius: BorderRadius.only(

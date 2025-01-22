@@ -28,7 +28,7 @@ Widget customTextField(
         ),
       ),
       hintText: hint,
-      hintStyle: TextStyle(color: lightGrey),
+      hintStyle: const TextStyle(color: lightGrey),
     ),
   );
 }

@@ -7,10 +7,10 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.put(HomeController());
     var navScreens = [
-      HomeScreen(),
-      ProductsScreen(),
-      OrdersScreen(),
-      ProfileScreen()
+      const HomeScreen(),
+      const ProductsScreen(),
+      const OrdersScreen(),
+      const ProfileScreen()
     ];
 
     var bottomNavbar = [

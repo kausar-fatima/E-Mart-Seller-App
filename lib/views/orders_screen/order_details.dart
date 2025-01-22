@@ -36,8 +36,10 @@ class _OrderDetailsState extends State<OrderDetails> {
       () => Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
               Icons.arrow_back,
               color: darkGrey,
             ),
@@ -63,7 +65,7 @@ class _OrderDetailsState extends State<OrderDetails> {
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
@@ -117,7 +119,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                     ],
                   )
                       .box
-                      .padding(EdgeInsets.all(8.0))
+                      .padding(const EdgeInsets.all(8.0))
                       .outerShadowMd
                       .white
                       .border(color: lightGrey)
@@ -147,6 +149,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 8),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,12 +192,12 @@ class _OrderDetailsState extends State<OrderDetails> {
                     .border(color: lightGrey)
                     .roundedSM
                     .make(),
-                Divider(),
+                const Divider(),
                 10.heightBox,
                 boldText(text: "Ordered Products", color: purpleColor),
                 10.heightBox,
                 ListView(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: List.generate(
                     controller.orders.length,
@@ -208,7 +211,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                               d1: "${controller.orders[index]['qty']}",
                               d2: "Refundaable"),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Container(
                               width: 30,
                               height: 20,
@@ -228,7 +231,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                     .box
                     .outerShadowMd
                     .white
-                    .margin(EdgeInsets.only(bottom: 4))
+                    .margin(const EdgeInsets.only(bottom: 4))
                     .make(),
                 20.heightBox,
               ],

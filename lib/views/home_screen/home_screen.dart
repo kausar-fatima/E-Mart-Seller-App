@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
                   b['p_wishlist'].length.compareTo(a['p_wishlist'].length),
             );
             return Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   10.heightBox,
-                  Divider(),
+                  const Divider(),
                   10.heightBox,
                   boldText(text: popular, color: darkGrey, size: 16.0),
                   20.heightBox,
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                     children: List.generate(
                       data.length,
                       (index) => data[index]['p_wishlist'].length == 0
-                          ? SizedBox()
+                          ? const SizedBox()
                           : ListTile(
                               onTap: () {
                                 Get.to(

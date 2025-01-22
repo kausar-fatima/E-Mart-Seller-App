@@ -4,6 +4,7 @@ Widget OrderPlaceDetails({title1, title2, d1, d2}) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
     child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

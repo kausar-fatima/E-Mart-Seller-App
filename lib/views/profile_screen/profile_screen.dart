@@ -27,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 );
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.edit,
                 color: Colors.white,
               ),
@@ -77,7 +77,7 @@ class ProfileScreen extends StatelessWidget {
                     const Divider(),
                     10.heightBox,
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: List.generate(
                           profileButtonIcons.length,
@@ -87,12 +87,12 @@ class ProfileScreen extends StatelessWidget {
                                 switch (index) {
                                   case 0:
                                     Get.to(() {
-                                      return ShopSettings();
+                                      return const ShopSettings();
                                     });
                                     break;
                                   case 1:
                                     Get.to(() {
-                                      return MessagesScreen();
+                                      return const MessagesScreen();
                                     });
                                     break;
                                   default:

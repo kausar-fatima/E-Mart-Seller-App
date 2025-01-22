@@ -28,6 +28,7 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
         resizeToAvoidBottomInset: false,
         backgroundColor: purpleColor,
         appBar: AppBar(
+          automaticallyImplyLeading: true,
           title: boldText(text: editProfile, size: 16.0),
           actions: [
             controller.isLoading.value
@@ -77,7 +78,7 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
           ],
         ),
         body: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               // if data image Url and controller path is empty
@@ -119,7 +120,7 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
                 color: white,
               ),
               10.heightBox,
-              Divider(),
+              const Divider(),
               customTextField(
                   label: name,
                   hint: "eg. Baaba Devs",
